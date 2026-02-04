@@ -1,0 +1,14 @@
+2026-02-04 21:18:34,786 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://172.17.0.2:8000
+2026-02-04 21:18:34,786 [INFO] [33mPress CTRL+C to quit[0m
+2026-02-04 21:19:03,066 [INFO] 192.168.65.1 - - [04/Feb/2026 21:19:03] "POST / HTTP/1.1" 200 -
+2026-02-04 21:20:11,599 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://172.17.0.2:8000
+2026-02-04 21:20:11,600 [INFO] [33mPress CTRL+C to quit[0m
+2026-02-04 21:20:35,573 [DEBUG] Started the / route
+2026-02-04 21:20:45,587 [DEBUG] Timed out connecting to 3.2.1.5.
+2026-02-04 21:20:45,596 [INFO] 192.168.65.1 - - [04/Feb/2026 21:20:45] "POST / HTTP/1.1" 200 -
