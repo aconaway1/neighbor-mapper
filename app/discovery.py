@@ -75,9 +75,17 @@ class DiscoveryError(Exception):
 class TopologyDiscoverer:
     """Discovers network topology recursively"""
     
-    def __init__(self, device_detector: DeviceTypeDetector, max_depth: int = 3):
+    def __init__(self, device_detector: DeviceTypeDetector, max_depth: int = 3, filters: dict = None):
         self.detector = device_detector
         self.max_depth = max_depth
+        self.filters = filters or {
+            'include_routers': True,
+            'include_switches': True,
+            'include_phones': False,
+            'include_servers': False,
+            'include_aps': False,
+            'include_other': False,
+        }
         self.topology = Topology()
         self.visited: Set[str] = set()
         self.credentials = {}
@@ -231,13 +239,13 @@ class TopologyDiscoverer:
         
         # Try CDP-based detection first (has better platform info)
         if platform:
-            device_type = self.detector.detect_from_cdp(platform, capabilities)
+            device_type = self.detector.detect_from_cdp(platform, capabilities, self.filters)
             if device_type:
                 return device_type
         
         # Fall back to LLDP system description
         if system_desc:
-            device_type = self.detector.detect_from_lldp(system_desc, capabilities)
+            device_type = self.detector.detect_from_lldp(system_desc, capabilities, self.filters)
             if device_type:
                 return device_type
         
